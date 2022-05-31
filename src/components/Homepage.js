@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useContext } from "react"
 import { useNavigate } from "react-router-dom"
+import { CurrentPageContext } from "../App"
 import {
   Main,
   TitleHeading,
@@ -10,6 +11,7 @@ import {
 
 const Home = () => {
   const navigate = useNavigate()
+  const dispatch = useContext(CurrentPageContext)
 
   return (
     <Main>
@@ -23,7 +25,14 @@ const Home = () => {
           experience!
         </MainParagraph>
       </section>
-      <ExploreBtn onClick={() => navigate("destination")}>Explore</ExploreBtn>
+      <ExploreBtn
+        onClick={() => {
+          dispatch({ type: "destination", payload: "destination" })
+          navigate("destination")
+        }}
+      >
+        Explore
+      </ExploreBtn>
     </Main>
   )
 }

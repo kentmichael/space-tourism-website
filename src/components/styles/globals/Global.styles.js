@@ -124,7 +124,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .active {
-    &:after {
+    &::after {
       opacity: 1;
     }
   }

@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from "react"
+import React, { useReducer } from "react"
 import { Routes, Route } from "react-router-dom"
 import { GlobalStyle } from "./components/styles/globals/Global.styles"
 import Home from "./components/Homepage"
