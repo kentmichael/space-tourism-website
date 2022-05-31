@@ -1,25 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useReducer } from "react"
+import { Routes, Route } from "react-router-dom"
+import { GlobalStyle } from "./components/styles/globals/Global.styles"
+import Home from "./components/Homepage"
+import Navigation from "./components/Navigation"
+import Destination from "./components/Destinationpage"
+import Crew from "./components/Crewpage"
+import Technology from "./components/Technologypage"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export const CurrentPageContext = React.createContext()
+
+const initialState = {
+  currentPage: "home",
 }
 
-export default App;
+const reducerFunc = (currentState, action) => {
+  switch (action.type) {
+    case "home":
+      return initialState
+    case "destination":
+      return {
+        currentPage: action.payload,
+      }
+    case "crew":
+      return {
+        currentPage: action.payload,
+      }
+    case "technology":
+      return {
+        currentPage: action.payload,
+      }
+    default:
+      return currentState
+  }
+}
+
+function App() {
+  const [state, dispatch] = useReducer(reducerFunc, initialState)
+
+  return (
+    <React.Fragment>
+      <CurrentPageContext.Provider value={dispatch}>
+        <GlobalStyle state={state} />
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="destination" element={<Destination />} />
+          <Route path="crew" element={<Crew />} />
+          <Route path="technology" element={<Technology />} />
+        </Routes>
+      </CurrentPageContext.Provider>
+    </React.Fragment>
+  )
+}
+
+export default App

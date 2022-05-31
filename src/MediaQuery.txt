@@ -1,0 +1,12 @@
+
+min-width
+
+768px - 48em
+1150px - 71.875em
+1440px - 90em
+
+max-width
+
+767px - 47.9375em
+1149px - 71.8125em
+1439px - 89.9375em
