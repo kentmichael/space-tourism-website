@@ -1,5 +1,6 @@
-import React, { useEffect, useState, useContext } from "react"
+import React, { useEffect, useContext } from "react"
 import { CurrentPageContext } from "../App"
+import useIndex from "./hooks/useIndex"
 import {
   DestinationMain,
   Heading2,
@@ -51,10 +52,13 @@ const DestinationInfo = [
 
 const Destination = () => {
   const dispatch = useContext(CurrentPageContext)
-  const [index, setIndex] = useState(0)
-  const [status, setStatus] = useState({
-    moon: "active",
-  })
+  const { index, setIndex, status, setStatus } = useIndex()
+
+  useEffect(() => {
+    setStatus({
+      moon: "active",
+    })
+  }, [])
 
   useEffect(() => {
     dispatch({ type: "destination", payload: "destination" })

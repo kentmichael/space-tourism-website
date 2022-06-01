@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useEffect, useContext } from "react"
 import { CurrentPageContext } from "../App"
+import useIndex from "./hooks/useIndex"
 import {
   Main,
   Heading2,
@@ -33,11 +34,14 @@ const TechInfo = [
 ]
 
 const Technology = () => {
-  const [index, setIndex] = useState(0)
-  const [status, setStatus] = useState({
-    tech1: "active-slider",
-  })
+  const { index, setIndex, status, setStatus } = useIndex()
   const dispatch = useContext(CurrentPageContext)
+
+  useEffect(() => {
+    setStatus({
+      tech1: "active-slider",
+    })
+  }, [])
 
   useEffect(() => {
     dispatch({ type: "technology", payload: "technology" })

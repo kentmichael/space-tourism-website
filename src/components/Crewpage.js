@@ -1,5 +1,6 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect } from "react"
 import { CurrentPageContext } from "../App"
+import useIndex from "./hooks/useIndex"
 import {
   Main,
   Heading2,
@@ -43,11 +44,33 @@ const CrewInfo = [
 ]
 
 const Crew = () => {
-  const [index, setIndex] = useState(0)
-  const [status, setStatus] = useState({
-    crew1: "active",
-  })
+  const { index, setIndex, status, setStatus } = useIndex()
   const dispatch = useContext(CurrentPageContext)
+
+  useEffect(() => {
+    setStatus({
+      crew0: "active",
+    })
+  }, [])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => {
+        if (prevIndex === 3) return 0
+        return prevIndex + 1
+      })
+    }, 5000)
+
+    return () => {
+      clearInterval(interval)
+    }
+  }, [])
+
+  useEffect(() => {
+    setStatus({
+      [`crew${index}`]: "active",
+    })
+  }, [index])
 
   useEffect(() => {
     dispatch({ type: "crew", payload: "crew" })
@@ -66,9 +89,19 @@ const Crew = () => {
           <InfoUl>
             <li>
               <Button
-                className={status?.crew1}
+                className={status?.crew0}
                 onClick={() => {
                   setIndex(0)
+                  setStatus({ crew0: "active" })
+                }}
+                aria-label="Crew 0"
+              />
+            </li>
+            <li>
+              <Button
+                className={status?.crew1}
+                onClick={() => {
+                  setIndex(1)
                   setStatus({ crew1: "active" })
                 }}
                 aria-label="Crew 1"
@@ -78,7 +111,7 @@ const Crew = () => {
               <Button
                 className={status?.crew2}
                 onClick={() => {
-                  setIndex(1)
+                  setIndex(2)
                   setStatus({ crew2: "active" })
                 }}
                 aria-label="Crew 2"
@@ -88,20 +121,10 @@ const Crew = () => {
               <Button
                 className={status?.crew3}
                 onClick={() => {
-                  setIndex(2)
+                  setIndex(3)
                   setStatus({ crew3: "active" })
                 }}
                 aria-label="Crew 3"
-              />
-            </li>
-            <li>
-              <Button
-                className={status?.crew4}
-                onClick={() => {
-                  setIndex(3)
-                  setStatus({ crew4: "active" })
-                }}
-                aria-label="Crew 4"
               />
             </li>
           </InfoUl>
