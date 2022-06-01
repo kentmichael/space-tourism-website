@@ -41,6 +41,7 @@ export const Heading2 = styled.h2`
 `
 
 export const Span = styled.span`
+  margin-left: 1rem;
   font-weight: 400;
   color: var(--primary-txt-color);
 `
@@ -238,6 +239,7 @@ export const Paragraph = styled.p`
   line-height: 1.5625rem;
 
   @media (min-width: 48em) {
+    max-width: 37rem;
     order: 3;
     margin-bottom: 2.5rem;
     font-size: 1rem;

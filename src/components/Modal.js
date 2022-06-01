@@ -6,7 +6,7 @@ import {
   CloseModalContainer,
   DialogBgOverlay,
   StyledDialog,
-} from "./styles/nav/Nav.styles"
+} from "./styles/nav/Nav"
 
 const Modal = ({ setModalStatus }) => {
   return ReactDOM.createPortal(

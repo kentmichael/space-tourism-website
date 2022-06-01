@@ -16,7 +16,7 @@ import {
   Heading4,
   CardInfoParagraph,
   InfoDiv,
-} from "./styles/destination/Destination.styles"
+} from "./styles/destination/Destination"
 
 const DestinationInfo = [
   {

@@ -1,4 +1,4 @@
-import React, { useReducer } from "react"
+import React, { useEffect, useReducer, useState } from "react"
 import { Routes, Route } from "react-router-dom"
 import { GlobalStyle } from "./components/styles/globals/Global.styles"
 import Home from "./components/Homepage"
@@ -36,12 +36,20 @@ const reducerFunc = (currentState, action) => {
 
 function App() {
   const [state, dispatch] = useReducer(reducerFunc, initialState)
+  const [modal, showModal] = useState(false)
+  const setModalStatus = () => {
+    showModal(!modal)
+  }
+
+  useEffect(() => {
+    showModal(false)
+  }, [state])
 
   return (
     <React.Fragment>
       <CurrentPageContext.Provider value={dispatch}>
-        <GlobalStyle state={state} />
-        <Navigation />
+        <GlobalStyle modal={modal} state={state} />
+        <Navigation modal={modal} setModalStatus={setModalStatus} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="destination" element={<Destination />} />

@@ -1,17 +1,13 @@
-import React, { useState, useContext } from "react"
+import React, { useContext } from "react"
 import { Link } from "react-router-dom"
 import { CurrentPageContext } from "../App"
 import Modal from "./Modal"
 import NavigationLinks from "./NavigationLinks"
-import { Nav, NavLogoImg, HamburgerButton } from "./styles/nav/Nav.styles"
+import { Nav, NavLogoImg, HamburgerButton } from "./styles/nav/Nav"
 
-const Navigation = () => {
-  const [modal, showModal] = useState(false)
+const Navigation = (props) => {
+  const { modal, setModalStatus } = props
   const dispatch = useContext(CurrentPageContext)
-
-  const setModalStatus = () => {
-    showModal(!modal)
-  }
 
   return (
     <Nav>
@@ -20,7 +16,6 @@ const Navigation = () => {
       </Link>
       <HamburgerButton aria-label="Menu Button" onClick={setModalStatus} />
       <NavigationLinks />
-
       {modal && <Modal setModalStatus={setModalStatus} />}
     </Nav>
   )

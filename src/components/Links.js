@@ -5,7 +5,7 @@ import {
   NavListLi,
   StyledNavLink,
   StyledNavLinkSpan,
-} from "./styles/nav/Nav.styles"
+} from "./styles/nav/Nav"
 
 const Links = () => {
   const dispatch = useContext(CurrentPageContext)

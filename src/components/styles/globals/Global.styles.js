@@ -38,7 +38,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    min-height: 100vh; // Temporary
+    overflow-y: ${(props) => (props.modal ? "hidden" : "auto")};
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     font-family: var(--font-body);
@@ -129,5 +130,10 @@ export const GlobalStyle = createGlobalStyle`
     &::after {
       opacity: 1;
     }
+  }
+
+  .active-slider {
+    background-color: var(--white);
+    color: var(--button-txt-color);
   }
 `

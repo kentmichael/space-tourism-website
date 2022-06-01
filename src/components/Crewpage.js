@@ -13,7 +13,7 @@ import {
   Span1,
   Heading3,
   Paragraph,
-} from "./styles/crew/Crew.styles"
+} from "./styles/crew/Crew"
 
 const CrewInfo = [
   {
@@ -56,7 +56,7 @@ const Crew = () => {
   return (
     <Main>
       <Heading2>
-        02 <Span>Meet your crew</Span>
+        02<Span>Meet your crew</Span>
       </Heading2>
       <Section>
         <ImageDiv>
