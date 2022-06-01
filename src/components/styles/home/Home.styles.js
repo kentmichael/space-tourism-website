@@ -14,7 +14,7 @@ export const Main = styled.main`
   @media (min-width: 48em) {
     gap: 9.6875rem;
     margin-inline: 3.3125rem;
-    padding-block: 5.625rem;
+    padding-block: 6.75rem;
   }
 
   @media (min-width: 71.875em) {
@@ -22,7 +22,8 @@ export const Main = styled.main`
     justify-items: start;
     gap: 0;
     margin-inline: auto;
-    padding-block: 8.188rem;
+    padding-top: 15.8125rem;
+    padding-bottom: 7.875rem;
   }
 `
 
