@@ -13,7 +13,10 @@ const Links = () => {
   return (
     <NavListUl>
       <NavListLi>
-        <StyledNavLink onClick={() => dispatch({ type: "home" })} to="/">
+        <StyledNavLink
+          onClick={() => dispatch({ type: "home" })}
+          to="space-tourism-website"
+        >
           <StyledNavLinkSpan>00</StyledNavLinkSpan>Home
         </StyledNavLink>
       </NavListLi>

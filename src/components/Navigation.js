@@ -11,7 +11,10 @@ const Navigation = (props) => {
 
   return (
     <Nav>
-      <Link onClick={() => dispatch({ type: "home" })} to="/">
+      <Link
+        onClick={() => dispatch({ type: "home" })}
+        to="space-tourism-website"
+      >
         <NavLogoImg />
       </Link>
       <HamburgerButton aria-label="Menu Button" onClick={setModalStatus} />
