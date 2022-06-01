@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useEffect, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { CurrentPageContext } from "../App"
 import {
@@ -12,6 +12,10 @@ import {
 const Home = () => {
   const navigate = useNavigate()
   const dispatch = useContext(CurrentPageContext)
+
+  useEffect(() => {
+    dispatch({ type: "home" })
+  }, [dispatch])
 
   return (
     <Main>

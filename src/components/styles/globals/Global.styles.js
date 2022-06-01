@@ -124,15 +124,18 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
-  .active {
-    opacity: 1;
+  a.active {
 
     &::after {
       opacity: 1;
     }
   }
 
-  .active-slider {
+  button.active {
+    opacity: 1;
+  }
+
+  button.active-slider {
     background-color: var(--white);
     color: var(--button-txt-color);
   }
