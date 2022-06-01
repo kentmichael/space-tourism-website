@@ -13,7 +13,7 @@ const Navigation = (props) => {
     <Nav>
       <Link
         onClick={() => dispatch({ type: "home" })}
-        to="space-tourism-website"
+        to="space-tourism-website/"
       >
         <NavLogoImg />
       </Link>

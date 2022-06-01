@@ -15,7 +15,7 @@ const Links = () => {
       <NavListLi>
         <StyledNavLink
           onClick={() => dispatch({ type: "home" })}
-          to="space-tourism-website"
+          to="space-tourism-website/"
         >
           <StyledNavLinkSpan>00</StyledNavLinkSpan>Home
         </StyledNavLink>
@@ -25,7 +25,7 @@ const Links = () => {
           onClick={() =>
             dispatch({ type: "destination", payload: "destination" })
           }
-          to="destination"
+          to="space-tourism-website/destination"
         >
           <StyledNavLinkSpan>01</StyledNavLinkSpan>Destination
         </StyledNavLink>
@@ -33,7 +33,7 @@ const Links = () => {
       <NavListLi>
         <StyledNavLink
           onClick={() => dispatch({ type: "crew", payload: "crew" })}
-          to="crew"
+          to="space-tourism-website/crew"
         >
           <StyledNavLinkSpan>02</StyledNavLinkSpan>Crew
         </StyledNavLink>
@@ -43,7 +43,7 @@ const Links = () => {
           onClick={() =>
             dispatch({ type: "technology", payload: "technology" })
           }
-          to="technology"
+          to="space-tourism-website/technology"
         >
           <StyledNavLinkSpan>03</StyledNavLinkSpan>Technology
         </StyledNavLink>

@@ -16,7 +16,9 @@ const initialState = {
 const reducerFunc = (currentState, action) => {
   switch (action.type) {
     case "home":
-      return initialState
+      return {
+        currentPage: "home",
+      }
     case "destination":
       return {
         currentPage: action.payload,
@@ -51,10 +53,16 @@ function App() {
         <GlobalStyle modal={modal} state={state} />
         <Navigation modal={modal} setModalStatus={setModalStatus} />
         <Routes>
-          <Route path="space-tourism-website" element={<Home />} />
-          <Route path="destination" element={<Destination />} />
-          <Route path="crew" element={<Crew />} />
-          <Route path="technology" element={<Technology />} />
+          <Route path="space-tourism-website/" element={<Home />} />
+          <Route
+            path="space-tourism-website/destination"
+            element={<Destination />}
+          />
+          <Route path="space-tourism-website/crew" element={<Crew />} />
+          <Route
+            path="space-tourism-website/technology"
+            element={<Technology />}
+          />
         </Routes>
       </CurrentPageContext.Provider>
     </React.Fragment>
