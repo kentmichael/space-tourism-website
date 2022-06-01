@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React, { useEffect, useState, useContext } from "react"
+import { CurrentPageContext } from "../App"
 import {
   DestinationMain,
   Heading2,
@@ -49,10 +50,15 @@ const DestinationInfo = [
 ]
 
 const Destination = () => {
+  const dispatch = useContext(CurrentPageContext)
   const [index, setIndex] = useState(0)
   const [status, setStatus] = useState({
     moon: "active",
   })
+
+  useEffect(() => {
+    dispatch({ type: "destination", payload: "destination" })
+  }, [dispatch])
 
   return (
     <DestinationMain>
