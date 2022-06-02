@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer, useState } from "react"
 import { Routes, Route } from "react-router-dom"
-import { GlobalStyle } from "./components/styles/globals/Global.styles"
+import GlobalStyle from "./components/styles/globals/Global"
 import Home from "./components/Homepage"
 import Navigation from "./components/Navigation"
 import Destination from "./components/Destinationpage"

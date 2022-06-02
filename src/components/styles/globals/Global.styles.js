@@ -38,13 +38,14 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    overflow-y: ${(props) => (props.modal ? "hidden" : "auto")};
     min-height: 100vh;
+    overflow-y: ${(props) => (props.modal ? "hidden" : "auto")};
     margin: 0;
     padding: 0;
     font-family: var(--font-body);
     font-size: 1.125rem;
     color: var(--secondary-txt-color);
+    background-color: hsl(230, 35%, 7%);
     background-image: url(
       ${(props) => {
         switch (props.state.currentPage) {
@@ -101,7 +102,7 @@ export const GlobalStyle = createGlobalStyle`
         }
       }}
     );
-}
+    }
   }
 
   h1,

@@ -222,7 +222,7 @@ export const CloseModalBtn = styled.button`
 `
 
 export const DialogBgOverlay = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   height: 100%;
